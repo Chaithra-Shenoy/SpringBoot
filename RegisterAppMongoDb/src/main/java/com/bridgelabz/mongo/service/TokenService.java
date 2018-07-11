@@ -6,7 +6,6 @@ package com.bridgelabz.mongo.service;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -20,12 +19,16 @@ import com.auth0.jwt.interfaces.DecodedJWT;
  * purpose
  * @author Chaithra-Shenoy
  * Date
- * 
  */
 @Service
 public class TokenService {
 	public static final String TOKEN_SECRET = "Chaithra";
 
+    /**
+     * generate token based on TOKEN_SECRET and username.
+     * @param userId
+     * @return  String
+     */
     public String createToken(String userId) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
@@ -44,6 +47,11 @@ public class TokenService {
         return null;
     }
 
+    /**
+     * to get the userName from the token generated
+     * @param token
+     * @return String
+     */
     public String getUserIdFromToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
@@ -62,6 +70,11 @@ public class TokenService {
         }
     }
 
+    /**
+     * to check valid token
+     * @param token
+     * @return boolean
+     */
     public boolean isTokenValid(String token) {
         String userId = this.getUserIdFromToken(token);
         return userId != null;
