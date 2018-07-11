@@ -19,6 +19,14 @@ import com.bridgelabz.mongo.model.Person;
 @Repository
 public interface PersonRepository extends MongoRepository<Person, String>{
 
+	/**
+	 * @param firstName
+	 * @return Person
+	 */
 	public Person findByFirstName(String firstName);
+	/**
+	 * @param age
+	 * @return List of Person
+	 */
 	public List<Person> findByAge(int age);
 }

@@ -23,21 +23,41 @@ public class PersonService {
 	@Autowired
 	private PersonRepository personRepository;
 
-	// create operation
+	/**
+	 * create operation
+	 * @param firstName
+	 * @param lastName
+	 * @param age
+	 * @return Person
+	 */
 	public Person create(String firstName, String lastName, int age) {
 		return personRepository.save(new Person(firstName, lastName, age));
 	}
 
-	// Retrieve operation
+	/**
+	 * Retrieve operation
+	 * @return List of Person
+	 */
 	public List<Person> getAll() {
 		return personRepository.findAll();
 	}
 
+	/**
+	 * get the person details based on firstName
+	 * @param firstName
+	 * @return Person
+	 */
 	public Person getByFirstName(String firstName) {
 		return personRepository.findByFirstName(firstName);
 	}
 
-	// Update operation
+	/**
+	 * Update persons lastName and Age 
+	 * @param firstName
+	 * @param lastName
+	 * @param age
+	 * @return Person
+	 */
 	public Person update(String firstName, String lastName, int age) {
 		Person p = personRepository.findByFirstName(firstName);
 		p.setLastName(lastName);
@@ -45,12 +65,17 @@ public class PersonService {
 		return personRepository.save(p);
 	}
 
-	// delete all records
+	/**
+	 * to delete all records
+	 */
 	public void deleteAll() {
 		personRepository.deleteAll();
 	}
 
-	// delete particular person
+	/**
+	 * to delete particular records
+	 * @param firstName
+	 */
 	public void deletePerson(String firstName) {
 		Person p = personRepository.findByFirstName(firstName);
 		personRepository.delete(p);
