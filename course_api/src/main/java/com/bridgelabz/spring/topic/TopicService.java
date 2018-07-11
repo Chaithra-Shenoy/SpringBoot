@@ -17,20 +17,30 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TopicService {
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private List<Topic> topics = new ArrayList(
 			Arrays.asList(new Topic("Spring", "Spring", "Spring Framework"), new Topic("J2EE", "Advanced Java", "J2EE"),
 					new Topic("JAVA", "Core Java", "Java"), new Topic("ORM", "Hibernate", "Hibernate")));
 
+	/**
+	 * to get all the topics
+	 * @return List
+	 */
 	public List<Topic> getTopics() {
 		return topics;
 	}
 
+	/**
+	 * to get particular topic
+	 * @param id
+	 * @return Topic
+	 */
 	public Topic getTopic(String id) {
 		return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
 	}
 
 	/**
+	 * to add a topic
 	 * @param topic
 	 */
 	public void addTopic(Topic topic) {
@@ -38,6 +48,7 @@ public class TopicService {
 	}
 
 	/**
+	 * to update a topic details
 	 * @param id
 	 * @param topic
 	 */
@@ -52,8 +63,9 @@ public class TopicService {
 	}
 
 	/**
+	 * to delete Topic
 	 * @param id
-	 * @return
+	 * @return void
 	 */
 	public void deleteTopic(String id) {
 		topics.remove(id);

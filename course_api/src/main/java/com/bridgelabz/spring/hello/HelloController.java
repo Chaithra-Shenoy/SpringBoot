@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloController {
+	/**
+	 * to print HI
+	 * @return string
+	 */
 	@RequestMapping("/hello")
  public String sayHi() {
 	 return "HI";

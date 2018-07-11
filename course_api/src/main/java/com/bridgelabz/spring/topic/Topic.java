@@ -17,7 +17,7 @@ public class Topic {
 	
 
 	/**
-	 * 
+	 * No Arg constructor
 	 */
 	public Topic() {
 	}
