@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TopicService {
+	@SuppressWarnings("unchecked")
 	private List<Topic> topics = new ArrayList(
 			Arrays.asList(new Topic("Spring", "Spring", "Spring Framework"), new Topic("J2EE", "Advanced Java", "J2EE"),
 					new Topic("JAVA", "Core Java", "Java"), new Topic("ORM", "Hibernate", "Hibernate")));
