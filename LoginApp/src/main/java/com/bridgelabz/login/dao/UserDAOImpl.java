@@ -18,6 +18,9 @@ import com.bridgelabz.login.model.User;
  * 
  */
 public class UserDAOImpl implements UserDAO{
+	/* (non-Javadoc)
+	 * @see com.bridgelabz.login.dao.UserDAO#getConnection()
+	 */
 	@Override
 	public Connection getConnection() throws ClassNotFoundException {
 		Connection connection = null;
@@ -32,6 +35,9 @@ public class UserDAOImpl implements UserDAO{
 		return connection;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.bridgelabz.login.dao.UserDAO#closeConnection(java.sql.ResultSet, java.sql.PreparedStatement, java.sql.Connection)
+	 */
 	@Override
 	public void closeConnection(ResultSet resultSet, PreparedStatement preparedStatement, Connection connection) {
 		if (resultSet != null) {

@@ -28,6 +28,13 @@ public class LoginController {
 	@Autowired
 		UserService userServiceImplementation ;
 
+		/**
+		 * to login
+		 * @param user
+		 * @return ResponseEntity
+		 * @throws ClassNotFoundException
+		 * @throws SQLException
+		 */
 		@SuppressWarnings({ "rawtypes", "unchecked" })
 		@RequestMapping(value = "/login", method = RequestMethod.POST)
 		public ResponseEntity<User> loginUser(@RequestBody User user) throws ClassNotFoundException, SQLException {
@@ -41,6 +48,13 @@ public class LoginController {
 
 		}
 
+		/**
+		 * to register new user
+		 * @param user
+		 * @return  ResponseEntity
+		 * @throws ClassNotFoundException
+		 * @throws SQLException
+		 */
 		@SuppressWarnings({ "unchecked", "rawtypes" })
 		@RequestMapping(value = "/register", method = RequestMethod.POST)
 		public ResponseEntity<User> registerUser(@RequestBody User user) throws ClassNotFoundException, SQLException {
